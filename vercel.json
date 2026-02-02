@@ -6,10 +6,16 @@
       "use": "@vercel/node"
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/api/:path*",
-      "destination": "/backend/server.js"
+      "src": "/api/(.*)",
+      "dest": "/backend/server.js"
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/update-news",
+      "schedule": "0 8 * * *"
     }
   ]
 }
